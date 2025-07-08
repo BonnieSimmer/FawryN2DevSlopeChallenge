@@ -6,16 +6,14 @@ public class Ebook extends Book implements Emailable {
     private String fileType;
     private double price;
 
-    public Ebook(String isbn, String title, Year year, double price, String fileType) {
+    public Ebook(String isbn, String title, Year year, double price, String fileType) throws IllegalArgumentException {
         super(isbn, title, year);
+        if (price <= 0) {
+            throw new IllegalArgumentException("Price must be positive.");
+        }
         this.price = price;
         this.fileType = fileType;
     }
-    public Ebook(String isbn, String title, Year year, double price) {
-        super(isbn, title, year);
-        this.price = price;
-    }
-
 
     @Override
     public String getFileType() {
@@ -36,7 +34,10 @@ public class Ebook extends Book implements Emailable {
     }
 
     @Override
-    public void setPrice(double price) {
+    public void setPrice(double price) throws IllegalArgumentException {
+        if (price <= 0) {
+            throw new IllegalArgumentException("Price must be positive.");
+        }
         this.price = price;
     }
 }

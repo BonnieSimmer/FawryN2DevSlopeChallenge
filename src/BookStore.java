@@ -107,4 +107,8 @@ public class BookStore {
         System.out.println("****************");
     }
 
+    public int getInventorySize() {
+        return inventory.size();
+    }
+
 }
