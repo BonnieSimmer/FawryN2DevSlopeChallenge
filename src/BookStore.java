@@ -14,6 +14,7 @@ public class BookStore {
         this.inventory = inventory;
     }
 
+    // for ebooks and quantity i actually looked into it and some websites are allowed to sell you multiple files to the same ebook it is weird but it happens mainly in small businesses.
     public void buySingleBook (String isbn, int quantity, String email, String address) throws IllegalArgumentException{
         if (quantity < 1) {
             throw new IllegalArgumentException("You must buy at least one book.");
@@ -31,6 +32,29 @@ public class BookStore {
             if (wantedBook.getPublishYear().plusYears(yearsToBeOutDated).compareTo(Year.now()) < 0) {
                 System.out.println("Sorry, but " + wantedBook.getTitle() + " is out of date.");
                 removeBook(wantedBook);
+            }
+            if (wantedBook instanceof Emailable) {
+                System.out.println("You have successfully placed your order for " + wantedBook.getTitle() + ".");
+                System.out.println("The paid amount was: " + wantedBook.getPrice());
+                System.out.println("Check your email for your order as it will be there momentarily.");
+                ((Emailable) wantedBook).sendToEmail(email);
+                // I will be ignoring the quantity for the email-able content as it doesn't seem fair to make them pay for multiples of it.
+            } else if (wantedBook instanceof Shippable) {
+                if (quantity >((Shippable) wantedBook).getStock() ) {
+                    throw new IllegalArgumentException("Sorry, but we only have " + ((Shippable) wantedBook).getStock() + " copies of " + wantedBook.getTitle() + ".");
+                }
+                System.out.println("You have successfully placed your order for "+ quantity + " copies of " + wantedBook.getTitle() + ".");
+                System.out.println("The paid amount was: " + wantedBook.getPrice()*(quantity));
+                System.out.println("Your order will be shipped to your address.");
+                ((Shippable) wantedBook).ship(address);
+                int leftOverQuantity = ((Shippable) wantedBook).getStock() - quantity;
+                if (leftOverQuantity > 0) {
+                    ((Shippable) wantedBook).setStock(leftOverQuantity);
+                } else {
+                    removeBook(wantedBook);
+                }
+            } else {
+                throw new IllegalArgumentException("That book is not for sale.");
             }
 
         } else {

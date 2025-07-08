@@ -9,10 +9,12 @@ public class PaperBook extends Book implements Shippable {
         this.stock = stock;
     }
 
+    @Override
     public int getStock() {
         return stock;
     }
 
+    @Override
     public void setStock(int stock) throws IllegalArgumentException {
         if (stock < 0) {
             throw new IllegalArgumentException("Stock cannot be negative");
@@ -21,7 +23,7 @@ public class PaperBook extends Book implements Shippable {
     }
 
     @Override
-    public void ship() {
-        System.out.println(title +" is being shipped.");
+    public void ship(String address) {
+        System.out.println(title +" is being shipped to " + address + ".");
     }
 }
