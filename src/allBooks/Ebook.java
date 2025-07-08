@@ -1,4 +1,4 @@
 package allBooks;
 
-public class Ebook {
+public class Ebook extends Book {
 }

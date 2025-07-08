@@ -1,4 +1,4 @@
 package allBooks;
 
-public class PaperBook {
+public class PaperBook extends Book implements Shippable {
 }

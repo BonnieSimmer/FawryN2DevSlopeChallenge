@@ -1,4 +1,4 @@
 package allBooks;
 
-public class ShowcaseDemoBook {
+public class ShowcaseDemoBook extends Book {
 }
