@@ -7,6 +7,7 @@ public class ShippingService {
         this.shippableItem = shippable;
         this.address = address;
     }
+    
     public void ship() {
         shippableItem.ship(address);
     }

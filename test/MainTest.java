@@ -211,7 +211,7 @@ class MainTest {
         @Test
         void testInvalidPrices() {
             assertThrows(IllegalArgumentException.class, () -> {
-                new Ebook("E101", "Test Book", Year.of(2024), -9.99, "pdf");
+                new Ebook("E101", "Test Book", Year.of(2024), -999, "pdf");
             });
             assertThrows(IllegalArgumentException.class, () -> {
                 new PaperBook("P101", "Test Book", Year.of(2024), 0, 5);

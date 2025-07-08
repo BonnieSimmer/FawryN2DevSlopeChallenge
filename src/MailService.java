@@ -7,6 +7,7 @@ public class MailService {
         this.emailableItem = emailable;
         this.email = email;
     }
+
     public void sendEmail() {
         emailableItem.sendToEmail(email);
     }

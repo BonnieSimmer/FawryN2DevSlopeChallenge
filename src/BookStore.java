@@ -96,7 +96,7 @@ public class BookStore {
     }
     static public void setYearsToBeOutDated(int years) {
         yearsToBeOutDated = years;
-        // I just used 10 but I guess the library could change their mind when they like about what is considered outdated.
+        // I just used 10 but, I guess the library could change their mind when they like about what is considered outdated.
     }
 
     public void printInventory() {

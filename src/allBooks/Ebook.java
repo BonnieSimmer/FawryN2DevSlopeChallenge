@@ -27,12 +27,10 @@ public class Ebook extends Book implements Emailable {
     public void sendToEmail(String email) {
         System.out.println(title + " has been sent to " + email + ".");
     }
-
     @Override
     public double getPrice() {
         return price;
     }
-
     @Override
     public void setPrice(double price) throws IllegalArgumentException {
         if (price <= 0) {

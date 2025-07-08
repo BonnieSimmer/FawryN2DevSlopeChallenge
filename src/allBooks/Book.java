@@ -14,6 +14,7 @@ abstract public class Book {
         if (isbn.isBlank() || title.isBlank()) {
             throw new IllegalArgumentException("All arguments must be non-blank.");
         }
+
         this.isbn = isbn;
         this.title = title;
         this.publishYear = publishYear;

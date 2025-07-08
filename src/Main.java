@@ -18,6 +18,7 @@ public class Main {
         quantum.printInventory();
         quantum.checkForOutdatedBooks(); // Will remove E103 and S101 names were too long for me to write
         quantum.printInventory();
+
         try {
             quantum.buySingleBook("E102", 1, "something@haga.com", "123 Main St");
             quantum.buySingleBook("P102", 1, "something@somethingelse.com", "456 Main St");
