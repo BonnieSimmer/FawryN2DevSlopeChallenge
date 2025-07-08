@@ -15,9 +15,20 @@ public class Main {
         books.add(new ShowcaseDemoBook("S102","The Hobbit: An Unexpected Journey", Year.of(2023)));
 
         quantum.addBooks(books);
+        quantum.printInventory();
         quantum.checkForOutdatedBooks(); // Will remove E103 and S101 names were too long for me to write
         quantum.printInventory();
-
+        try {
+            quantum.buySingleBook("E102", 1, "something@haga.com", "123 Main St");
+            quantum.buySingleBook("P102", 1, "something@somethingelse.com", "456 Main St");
+            quantum.buySingleBook("S101", 1, "test@test.com", "789 Main St");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getClass().getName() + ": " +e.getMessage() + "\n");
+        } finally {
+            quantum.printInventory();
+            quantum.removeBook(books.getLast()); // just to test removing
+            quantum.printInventory();
+        }
 
     }
 }

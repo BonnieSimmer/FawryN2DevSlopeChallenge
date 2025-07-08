@@ -60,17 +60,20 @@ public class BookStore {
         } else {
             throw new IllegalArgumentException("That book is not in our inventory.");
         }
+        System.out.println();
     }
 
 
 
     public void checkForOutdatedBooks() {
-        for (Book book : inventory) {
+        for (int i = 0; i < inventory.size(); i++) {
+            Book book = inventory.get(i);
             if (book.getPublishYear().plusYears(yearsToBeOutDated).compareTo(Year.now()) < 0) {
-                System.out.println(book.getTitle() + " is out of date.");
+                System.out.println("Sorry, but " + book.getTitle() + " is out of date.");
                 removeBook(book);
             }
         }
+        System.out.println();
     }
 
     public ArrayList<Book> getInventory() {
