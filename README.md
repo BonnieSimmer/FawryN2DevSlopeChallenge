@@ -15,7 +15,7 @@ Design an online book store with the following criteria:
     - Return the paid amount.
     - Send Paper book to the ShippingService with the address provided (no implementation required)
     - Send EBook to MailService with the email provided (no implementation required)
-- Provide a class to test adding, removing, buying books This class should be named QuantumBookstoreFullTest
+- Provide a class to test adding, removing, buying books
 - Design the system to be easily extensible, so that we don’t need to modify it if we’ve added a new type of products
 ## UML
 <img width="5616" alt="Fawry Project UML (Copy)" src="https://github.com/user-attachments/assets/228986f1-25a1-49f7-a1a4-779641d7d613" />
