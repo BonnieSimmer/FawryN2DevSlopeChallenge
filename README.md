@@ -1,5 +1,7 @@
 # Quantum Bookstore
 
+By: Nour Ali Elhelw
+
 Design an online book store with the following criteria:
 - The book store may have an inventory of many books of these types:
   - Paper book which have stock and may be shipped
@@ -12,7 +14,7 @@ Design an online book store with the following criteria:
     - Reduces the quantity of the book from the inventory, throw error if not available
     - Return the paid amount.
     - Send Paper book to the ShippingService with the address provided (no implementation required)
-    - Send EBook to MailService with the email provided (no implementation required) add field author name to the book
+    - Send EBook to MailService with the email provided (no implementation required)
 - Provide a class to test adding, removing, buying books This class should be named QuantumBookstoreFullTest
 - Design the system to be easily extensible, so that we don’t need to modify it if we’ve added a new type of products
 ## UML
